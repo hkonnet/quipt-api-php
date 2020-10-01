@@ -14,6 +14,9 @@ class Request extends Base
 
     public $page_size=100;
     public $page_number=1;
+    public $skus=[];
+    public $ids=[];
+    public $include=[];
     public function getInventory(){
         try {
             $query_params=[
