@@ -13,16 +13,18 @@ namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
  * @property string $Id
  * @property string $Name
  * @property string $Code
+ * @property array $Value
+ * @property Section $Section
  */
 
-class Condition extends \Hkonnet\QuiptApi\AbstractComplexType
+class Attributes extends \Hkonnet\QuiptApi\AbstractComplexType
 {
     /**
      * Name of this complex type
      *
      * @var string
      */
-    protected $name = 'Condition';
+    protected $name = 'Attributes';
 
     /**
      * Identifies the Id of inventory.
@@ -49,7 +51,7 @@ class Condition extends \Hkonnet\QuiptApi\AbstractComplexType
     }
 
     /**
-     * Identifies the code of inventory
+     * Identifies the Code of inventory
      *
      * @param string $code
      * @return $this
@@ -59,4 +61,29 @@ class Condition extends \Hkonnet\QuiptApi\AbstractComplexType
         $this->values['Code'] = $code;
         return $this;
     }
+
+    /**
+     * Identifies the value of a package/shipment.
+     *
+     * @param array $value
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        $this->values['Value'] = $value;
+        return $this;
+    }
+
+    /**
+     * Identifies the Section of inventory
+     *
+     * @param Section $section
+     * @return $this
+     */
+    public function setSection(Section $section)
+    {
+        $this->values['Section'] = $section;
+        return $this;
+    }
+
 }

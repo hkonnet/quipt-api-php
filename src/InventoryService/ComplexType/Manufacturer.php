@@ -12,17 +12,16 @@ namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
  *
  * @property string $Id
  * @property string $Name
- * @property string $Code
  */
 
-class Condition extends \Hkonnet\QuiptApi\AbstractComplexType
+class Manufacturer extends \Hkonnet\QuiptApi\AbstractComplexType
 {
     /**
      * Name of this complex type
      *
      * @var string
      */
-    protected $name = 'Condition';
+    protected $name = 'Manufacturer';
 
     /**
      * Identifies the Id of inventory.
@@ -45,18 +44,6 @@ class Condition extends \Hkonnet\QuiptApi\AbstractComplexType
     public function setName($name)
     {
         $this->values['Name'] = $name;
-        return $this;
-    }
-
-    /**
-     * Identifies the code of inventory
-     *
-     * @param string $code
-     * @return $this
-     */
-    public function setCode($code)
-    {
-        $this->values['Code'] = $code;
         return $this;
     }
 }

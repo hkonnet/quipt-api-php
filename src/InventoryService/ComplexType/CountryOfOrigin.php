@@ -10,29 +10,41 @@ namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
  * @package     PHP Quipt API wrapper
  * @subpackage  Inventroy Service
  *
- * @property string $Id
+ * @property string $ISO
+ * @property string $ISO3
  * @property string $Name
- * @property string $Code
  */
 
-class Condition extends \Hkonnet\QuiptApi\AbstractComplexType
+class CountryOfOrigin extends \Hkonnet\QuiptApi\AbstractComplexType
 {
     /**
      * Name of this complex type
      *
      * @var string
      */
-    protected $name = 'Condition';
+    protected $name = 'CountryOfOrigin';
 
     /**
-     * Identifies the Id of inventory.
+     * Identifies the ISO of inventory.
      *
-     * @param string $id
+     * @param string $ISO
      * @return $this
      */
-    public function setId($id)
+    public function setISO($ISO)
     {
-        $this->values['Id'] = $id;
+        $this->values['ISO'] = $ISO;
+        return $this;
+    }
+
+    /**
+     * Identifies the ISO3 of inventory.
+     *
+     * @param string $ISO3
+     * @return $this
+     */
+    public function setISO3($ISO3)
+    {
+        $this->values['ISO3'] = $ISO3;
         return $this;
     }
 
@@ -45,18 +57,6 @@ class Condition extends \Hkonnet\QuiptApi\AbstractComplexType
     public function setName($name)
     {
         $this->values['Name'] = $name;
-        return $this;
-    }
-
-    /**
-     * Identifies the code of inventory
-     *
-     * @param string $code
-     * @return $this
-     */
-    public function setCode($code)
-    {
-        $this->values['Code'] = $code;
         return $this;
     }
 }
