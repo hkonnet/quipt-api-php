@@ -13,28 +13,29 @@ namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
  * @property string $Id
  * @property Weight $Weight
  * @property Dimensions $Dimensions
- * @property Warranty $Warranty
- * @property Condition $Condition
- * @property Packaging $Packaging
+ * @property CatalogWarranty $Warranty
+ * @property CatalogCondition $Condition
+ * @property CatalogPackaging $Packaging
  * @property array $InBox
  * @property string $Title
  * @property string $AltTitle
  * @property string $AltTitle2
- * @property Manufacturer $Manufacturer
- * @property Brand $Brand
- * @property array $SKUs #todo
+ * @property CatalogManufacturer $Manufacturer
+ * @property CatalogManufacturer $Brand
+ * @property array $SKUs
  * @property CountryOfOrigin $CountryOfOrigin
- * @property Category $Category
- * @property Attributes $Attributes
- * @property array $Pricing #todo
+ * @property CatalogCategory $Category
+ * @property array $Attributes
+ * @property CatalogPricing $Pricing
  * @property array $Features
  * @property string $SpecSheetURL
  * @property string $Description
- * @property PrimaryImage $PrimaryImage
+ * @property Asset $PrimaryImage
  * @property array $AdditionalImages
  * @property array $Documents
  * @property array $Tags
  * @property integer $VersionNumber
+ * @property boolean $InitializeOnly
  */
 
 class Catalog extends \Hkonnet\QuiptApi\AbstractComplexType
@@ -85,10 +86,10 @@ class Catalog extends \Hkonnet\QuiptApi\AbstractComplexType
     /**
      * Identifies the warranty of inventory
      *
-     * @param Warranty $warranty
+     * @param CatalogWarranty $warranty
      * @return $this
      */
-    public function setWarranty(Warranty $warranty)
+    public function setWarranty(CatalogWarranty $warranty)
     {
         $this->values['Warranty'] = $warranty;
         return $this;
@@ -97,10 +98,10 @@ class Catalog extends \Hkonnet\QuiptApi\AbstractComplexType
     /**
      * Identifies the  Condition of inventory
      *
-     * @param Condition $condition
+     * @param CatalogCondition $condition
      * @return $this
      */
-    public function setCondition(Condition $condition)
+    public function setCondition(CatalogCondition $condition)
     {
         $this->values['Condition'] = $condition;
         return $this;
@@ -109,10 +110,10 @@ class Catalog extends \Hkonnet\QuiptApi\AbstractComplexType
     /**
      * Identifies the  $packaging of inventory
      *
-     * @param Packaging $packaging
+     * @param CatalogPackaging $packaging
      * @return $this
      */
-    public function setPackaging(Packaging $packaging)
+    public function setPackaging(CatalogPackaging $packaging)
     {
         $this->values['Packaging'] = $packaging;
         return $this;
@@ -168,10 +169,10 @@ class Catalog extends \Hkonnet\QuiptApi\AbstractComplexType
     /**
      * Identifies the  $manufacturer of inventory
      *
-     * @param Manufacturer $manufacturer
+     * @param CatalogManufacturer $manufacturer
      * @return $this
      */
-    public function setManufacturer(Manufacturer $manufacturer)
+    public function setManufacturer(CatalogManufacturer $manufacturer)
     {
         $this->values['Manufacturer'] = $manufacturer;
         return $this;
@@ -180,10 +181,10 @@ class Catalog extends \Hkonnet\QuiptApi\AbstractComplexType
     /**
      * Identifies the  $brand of inventory
      *
-     * @param Brand $brand
+     * @param CatalogManufacturer $brand
      * @return $this
      */
-    public function setBrand(Brand $brand)
+    public function setBrand(CatalogManufacturer $brand)
     {
         $this->values['Brand'] = $brand;
         return $this;
@@ -195,8 +196,15 @@ class Catalog extends \Hkonnet\QuiptApi\AbstractComplexType
      * @param array $SKUs
      * @return $this
      */
-    public function setSKUs( $SKUs)
+    public function setSKUs(array $SKUs)
     {
+        $count=array_filter($SKUs, function ($obj) {
+            return !($obj instanceof CatalogSKU);
+        }
+        );
+        if (count($count) > 0){
+            throw new \Exception('an array of CatalogSKU must be provided');
+        }
         $this->values['SKUs'] = $SKUs;
         return $this;
     }
@@ -213,24 +221,31 @@ class Catalog extends \Hkonnet\QuiptApi\AbstractComplexType
         return $this;
     }
     /**
-     * Identifies the  $catalog of inventory
+     * Identifies the  $category of inventory
      *
-     * @param Catalog $catalog
+     * @param CatalogCategory $category
      * @return $this
      */
-    public function setCatalog(Catalog $catalog)
+    public function setCategory(CatalogCategory $category)
     {
-        $this->values['Catalog'] = $catalog;
+        $this->values['Category'] = $category;
         return $this;
     }
     /**
      * Identifies the  Attributes of inventory
      *
-     * @param Attributes $attributes
+     * @param array $attributes
      * @return $this
      */
-    public function setAttributes(Attributes $attributes)
+    public function setAttributes(array $attributes)
     {
+        $count=array_filter($attributes, function ($obj) {
+                  return !($obj instanceof CatalogAttribute);
+            }
+        );
+        if (count($count) > 0){
+                 throw new \Exception('an array of CatalogAttribute must be provided');
+            }
         $this->values['Attributes'] = $attributes;
         return $this;
     }
@@ -238,10 +253,10 @@ class Catalog extends \Hkonnet\QuiptApi\AbstractComplexType
     /**
      * Identifies the  Pricing of inventory
      *
-     * @param array $pricing
+     * @param CatalogPricing $pricing
      * @return $this
      */
-    public function setPricing( $pricing)
+    public function setPricing(CatalogPricing $pricing)
     {
         $this->values['Pricing'] = $pricing;
         return $this;
@@ -286,11 +301,12 @@ class Catalog extends \Hkonnet\QuiptApi\AbstractComplexType
     /**
      * Identifies the  PrimaryImage of inventory
      *
-     * @param PrimaryImage $primary_image
+     * @param Asset $primary_image
      * @return $this
      */
-    public function setPrimaryImage(PrimaryImage $primary_image)
+    public function setPrimaryImage(Asset $primary_image)
     {
+
         $this->values['PrimaryImage'] = $primary_image;
         return $this;
     }
@@ -301,8 +317,15 @@ class Catalog extends \Hkonnet\QuiptApi\AbstractComplexType
      * @param array $additional_images
      * @return $this
      */
-    public function setAdditionalImages( $additional_images)
+    public function setAdditionalImages(array $additional_images)
     {
+        $count=array_filter($additional_images, function ($obj) {
+            return !($obj instanceof Asset);
+        }
+        );
+        if (count($count) > 0){
+            throw new \Exception('an array of Asset must be provided');
+        }
         $this->values['AdditionalImages'] = $additional_images;
         return $this;
     }
@@ -313,8 +336,15 @@ class Catalog extends \Hkonnet\QuiptApi\AbstractComplexType
      * @param array $documents
      * @return $this
      */
-    public function setDocuments( $documents)
+    public function setDocuments(array $documents)
     {
+        $count=array_filter($documents, function ($obj) {
+            return !($obj instanceof Asset);
+        }
+        );
+        if (count($count) > 0){
+            throw new \Exception('an array of Asset must be provided');
+        }
         $this->values['Documents'] = $documents;
         return $this;
     }
@@ -325,7 +355,7 @@ class Catalog extends \Hkonnet\QuiptApi\AbstractComplexType
      * @param array $tags
      * @return $this
      */
-    public function setTags( $tags)
+    public function setTags(array $tags)
     {
         $this->values['Tags'] = $tags;
         return $this;
@@ -340,6 +370,18 @@ class Catalog extends \Hkonnet\QuiptApi\AbstractComplexType
     public function setVersionNumber( $version_number)
     {
         $this->values['VersionNumber'] = $version_number;
+        return $this;
+    }
+
+    /**
+     * Identifies the  initialize_only of inventory
+     *
+     * @param boolean $initialize_only
+     * @return $this
+     */
+    public function setInitializeOnly( $initialize_only)
+    {
+        $this->values['InitializeOnly'] = $initialize_only;
         return $this;
     }
 }

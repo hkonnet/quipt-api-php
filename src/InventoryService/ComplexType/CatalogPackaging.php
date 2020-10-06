@@ -3,6 +3,8 @@
 
 namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
 
+use Hkonnet\QuiptApi\InventoryService\SimpleType\PackagingCodes;
+
 /**
  * The descriptive data for the heaviness of an object.
  *
@@ -12,17 +14,17 @@ namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
  *
  * @property string $Id
  * @property string $Name
- * @property string $Code
+ * @property PackagingCodes|string $Code
  */
 
-class Channel extends \Hkonnet\QuiptApi\AbstractComplexType
+class CatalogPackaging extends \Hkonnet\QuiptApi\AbstractComplexType
 {
     /**
      * Name of this complex type
      *
      * @var string
      */
-    protected $name = 'Channel';
+    protected $name = 'Packaging';
 
     /**
      * Identifies the Id of inventory.
@@ -51,7 +53,7 @@ class Channel extends \Hkonnet\QuiptApi\AbstractComplexType
     /**
      * Identifies the code of inventory
      *
-     * @param string $code
+     * @param PackagingCodes|string $code
      * @return $this
      */
     public function setCode($code)

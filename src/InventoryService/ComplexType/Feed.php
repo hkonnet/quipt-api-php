@@ -14,15 +14,15 @@ use Hkonnet\QuiptApi\InventoryService\SimpleType\WeightUnits;
  *
  * @property string $Id
  * @property boolean $On
- * @property Channel $Channel
- * @property string|null $Promo
+ * @property Partner $Channel
+ * @property FeedPromotion $Promo
  * @property Allocation $Allocation
  * @property FeedsPricing $Pricing
  * @property string $MapId
- * @property string|null $ARP
+ * @property Currency $ARP
  * @property array $Properties
  */
-class Feeds extends \Hkonnet\QuiptApi\AbstractComplexType
+class Feed extends \Hkonnet\QuiptApi\AbstractComplexType
 {
     /**
      * Name of this complex type
@@ -58,10 +58,10 @@ class Feeds extends \Hkonnet\QuiptApi\AbstractComplexType
     /**
      * Identifies the $channel of inventory.
      *
-     * @param Channel $channel
+     * @param Partner $channel
      * @return $this
      */
-    public function setChannel(Channel $channel)
+    public function setChannel(Partner $channel)
     {
         $this->values['Channel'] = $channel;
         return $this;
@@ -95,10 +95,10 @@ class Feeds extends \Hkonnet\QuiptApi\AbstractComplexType
     /**
      * Identifies the $Promo of inventory.
      *
-     * @param string|null $promo
+     * @param FeedPromotion $promo
      * @return $this
      */
-    public function setPromo($promo)
+    public function setPromo(FeedPromotion $promo)
     {
         $this->values['Promo'] = $promo;
         return $this;
@@ -119,10 +119,10 @@ class Feeds extends \Hkonnet\QuiptApi\AbstractComplexType
     /**
      * Identifies the ARP of inventory.
      *
-     * @param string|null $ARP
+     * @param Currency $ARP
      * @return $this
      */
-    public function setARP($ARP)
+    public function setARP(Currency $ARP)
     {
         $this->values['ARP'] = $ARP;
         return $this;
@@ -136,6 +136,13 @@ class Feeds extends \Hkonnet\QuiptApi\AbstractComplexType
      */
     public function setProperties($properties)
     {
+        $count=array_filter($properties, function ($obj) {
+            return !($obj instanceof FeedProperty);
+        }
+        );
+        if (count($count) > 0){
+            throw new \Exception('an array of FeedProperty must be provided');
+        }
         $this->values['Properties'] = $properties;
         return $this;
     }

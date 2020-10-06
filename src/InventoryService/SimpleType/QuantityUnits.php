@@ -5,13 +5,13 @@ namespace Hkonnet\QuiptApi\InventoryService\SimpleType;
 
 
 /**
- * WeightUnits
+ * QuantityUnits
  *
- * @author      Haroon Khan <hkonnet@gmail.com>
+ * @author      Sadam Hussain <dami_sadam@yahoo.com>
  * @package     PHP Quipt API wrapper
  * @subpackage  Inventory Service
  */
 class QuantityUnits extends \Hkonnet\QuiptApi\AbstractSimpleType
 {
-    const _BOX= 0;
+    const _Each= 0;
 }

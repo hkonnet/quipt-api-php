@@ -3,6 +3,8 @@
 
 namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
 
+use Hkonnet\QuiptApi\InventoryService\SimpleType\AssetType;
+
 /**
  * The descriptive data for the heaviness of an object.
  *
@@ -12,17 +14,19 @@ namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
  *
  * @property string $Id
  * @property string $Name
- * @property string $Code
+ * @property string $URL
+ * @property AssetType|integer $Type
+ * @property string|null $Description
  */
 
-class Condition extends \Hkonnet\QuiptApi\AbstractComplexType
+class Asset extends \Hkonnet\QuiptApi\AbstractComplexType
 {
     /**
      * Name of this complex type
      *
      * @var string
      */
-    protected $name = 'Condition';
+    protected $name = 'Asset';
 
     /**
      * Identifies the Id of inventory.
@@ -49,14 +53,38 @@ class Condition extends \Hkonnet\QuiptApi\AbstractComplexType
     }
 
     /**
-     * Identifies the code of inventory
+     * Identifies the url of inventory
      *
-     * @param string $code
+     * @param string $url
      * @return $this
      */
-    public function setCode($code)
+    public function setURL($url)
     {
-        $this->values['Code'] = $code;
+        $this->values['URL'] = $url;
+        return $this;
+    }
+
+    /**
+     * Identifies the type of inventory
+     *
+     * @param AssetType|integer $type
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->values['Type'] = $type;
+        return $this;
+    }
+
+    /**
+     * Identifies the type of inventory
+     *
+     * @param string|null $description
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->values['Description'] = $description;
         return $this;
     }
 }

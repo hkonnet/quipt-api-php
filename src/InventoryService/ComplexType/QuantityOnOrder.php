@@ -52,7 +52,7 @@ class QuantityOnOrder extends \Hkonnet\QuiptApi\AbstractComplexType
     /**
      * Identifies the weight value of a package/shipment.
      *
-     * @param float $expectedAt
+     * @param string|null $expectedAt
      * @return $this
      */
     public function setExpectedAt($expectedAt)

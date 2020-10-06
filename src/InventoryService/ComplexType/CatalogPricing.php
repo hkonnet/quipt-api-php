@@ -12,32 +12,32 @@ use Hkonnet\QuiptApi\InventoryService\SimpleType\WeightUnits;
  * @package     PHP Quipt API wrapper
  * @subpackage  Inventroy Service
  *
- * @property Currency $Price
+ * @property Currency $MSRP
  * @property Currency $SRP
+ * @property string $MSRPURL
  */
-class FeedsPricing extends \Hkonnet\QuiptApi\AbstractComplexType
+class CatalogPricing extends \Hkonnet\QuiptApi\AbstractComplexType
 {
     /**
      * Name of this complex type
      *
      * @var string
      */
-    protected $name = 'FeedsPricing';
+    protected $name = 'Pricing';
 
     /**
-     * Identifies the Price of inventory.
+     * Identifies the MSRP of measure associated with a weight value.
      *
-     * @param Currency $price
+     * @param Currency $MSRP
      * @return $this
      */
-    public function setPrice(Currency $price)
+    public function setMSRP(Currency $MSRP)
     {
-        $this->values['Price'] = $price;
+        $this->values['MSRP'] = $MSRP;
         return $this;
     }
-
     /**
-     * Identifies the $SRP of inventory.
+     * Identifies the SRP of measure associated with a weight value.
      *
      * @param Currency $SRP
      * @return $this
@@ -48,4 +48,15 @@ class FeedsPricing extends \Hkonnet\QuiptApi\AbstractComplexType
         return $this;
     }
 
+    /**
+     * Identifies the MSRPURL value of a package/shipment.
+     *
+     * @param string $MSRPURL
+     * @return $this
+     */
+    public function setMSRPURL($MSRPURL)
+    {
+        $this->values['MSRPURL'] = $MSRPURL;
+        return $this;
+    }
 }

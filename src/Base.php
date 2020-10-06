@@ -170,7 +170,7 @@ class Base extends Client
      */
     public function post($options = [], $endpoint = '')
     {
-
+        $this->header($this->base_uri.$endpoint,'POST');
         $response = $this->request('POST', "{$endpoint}", ['json' => $options,'headers'=>$this->headers ]);
 
         return json_decode($response->getBody()->getContents());

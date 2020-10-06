@@ -13,12 +13,12 @@ namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
  * @property string $Id
  * @property Quantity $Quantity
  * @property QuantityOnOrder $QuantityOnOrder
- * @property Serials $Serials
- * @property Bins $Bins
+ * @property InventorySerialCollection $Serials
+ * @property InventoryBinCollection $Bins
  * @property Warehouse $Warehouse
  */
 
-class Locations extends \Hkonnet\QuiptApi\AbstractComplexType
+class InventoryLocation extends \Hkonnet\QuiptApi\AbstractComplexType
 {
     /**
      * Name of this complex type
@@ -66,10 +66,10 @@ class Locations extends \Hkonnet\QuiptApi\AbstractComplexType
     /**
      * Identifies the serials of inventory
      *
-     * @param Serials $serials
+     * @param InventorySerialCollection $serials
      * @return $this
      */
-    public function setSerials(Serials $serials)
+    public function setSerials(InventorySerialCollection $serials)
     {
         $this->values['Serials'] = $serials;
         return $this;
@@ -78,10 +78,10 @@ class Locations extends \Hkonnet\QuiptApi\AbstractComplexType
     /**
      * Identifies the  $bins of inventory
      *
-     * @param Bins $bins
+     * @param InventoryBinCollection $bins
      * @return $this
      */
-    public function setBins(Bins $bins)
+    public function setBins(InventoryBinCollection $bins)
     {
         $this->values['Bins'] = $bins;
         return $this;

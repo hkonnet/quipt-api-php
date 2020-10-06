@@ -5,9 +5,9 @@ namespace Hkonnet\QuiptApi\InventoryService\SimpleType;
 
 
 /**
- * WeightUnits
+ * DimensionUnits
  *
- * @author      Haroon Khan <hkonnet@gmail.com>
+ * @author      Sadam Hussain <dami_sadam@yahoo.com>
  * @package     PHP Quipt API wrapper
  * @subpackage  Inventory Service
  */

@@ -4,6 +4,7 @@
 namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
 
 use Hkonnet\QuiptApi\InventoryService\SimpleType\DimensionUnits;
+use Hkonnet\QuiptApi\InventoryService\SimpleType\WarrantyProviders;
 use Hkonnet\QuiptApi\InventoryService\SimpleType\WeightUnits;
 
 /**
@@ -16,10 +17,10 @@ use Hkonnet\QuiptApi\InventoryService\SimpleType\WeightUnits;
  * @property PhoneNumber $PhoneNumber
  * @property string $Duration
  * @property string $Email
- * @property integer $Provider
+ * @property WarrantyProviders|integer $Provider
  * @property string|null $URL
  */
-class Warranty extends \Hkonnet\QuiptApi\AbstractComplexType
+class CatalogWarranty extends \Hkonnet\QuiptApi\AbstractComplexType
 {
     /**
      * Name of this complex type
@@ -54,7 +55,7 @@ class Warranty extends \Hkonnet\QuiptApi\AbstractComplexType
     /**
      * Warranty Provider
      *
-     * @param string $provider
+     * @param WarrantyProviders|integer $provider
      * @return $this
      */
     public function setProvider($provider)
@@ -79,9 +80,9 @@ class Warranty extends \Hkonnet\QuiptApi\AbstractComplexType
      * @param PhoneNumber $phone_number
      * @return $this
      */
-    public function setUserCredential(PhoneNumber $phone_number)
+    public function setNumber(PhoneNumber $phone_number)
     {
-        $this->values['UserCredential'] = $phone_number;
+        $this->values['Number'] = $phone_number;
         return $this;
     }
 }

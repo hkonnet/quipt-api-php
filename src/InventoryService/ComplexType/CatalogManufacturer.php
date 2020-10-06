@@ -14,14 +14,14 @@ namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
  * @property string $Name
  */
 
-class Brand extends \Hkonnet\QuiptApi\AbstractComplexType
+class CatalogManufacturer extends \Hkonnet\QuiptApi\AbstractComplexType
 {
     /**
      * Name of this complex type
      *
      * @var string
      */
-    protected $name = 'Brand';
+    protected $name = 'Manufacturer';
 
     /**
      * Identifies the Id of inventory.

@@ -13,6 +13,8 @@ namespace Hkonnet\QuiptApi\InventoryService\SimpleType;
  */
 class WeightUnits extends \Hkonnet\QuiptApi\AbstractSimpleType
 {
-    const _KG = 'KG';
-    const _LB = 'LB';
+    const _None = 0;
+    const _Pounds = 10;
+    const _Grams= 20;
+    const _Kilograms= 30;
 }

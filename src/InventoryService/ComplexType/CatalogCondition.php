@@ -3,6 +3,8 @@
 
 namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
 
+use Hkonnet\QuiptApi\InventoryService\SimpleType\ConditionCodes;
+
 /**
  * The descriptive data for the heaviness of an object.
  *
@@ -12,16 +14,17 @@ namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
  *
  * @property string $Id
  * @property string $Name
+ * @property ConditionCodes|string $Code
  */
 
-class Section extends \Hkonnet\QuiptApi\AbstractComplexType
+class CatalogCondition extends \Hkonnet\QuiptApi\AbstractComplexType
 {
     /**
      * Name of this complex type
      *
      * @var string
      */
-    protected $name = 'Section';
+    protected $name = 'Condition';
 
     /**
      * Identifies the Id of inventory.
@@ -44,6 +47,18 @@ class Section extends \Hkonnet\QuiptApi\AbstractComplexType
     public function setName($name)
     {
         $this->values['Name'] = $name;
+        return $this;
+    }
+
+    /**
+     * Identifies the code of inventory
+     *
+     * @param ConditionCodes|string $code
+     * @return $this
+     */
+    public function setCode($code)
+    {
+        $this->values['Code'] = $code;
         return $this;
     }
 }
