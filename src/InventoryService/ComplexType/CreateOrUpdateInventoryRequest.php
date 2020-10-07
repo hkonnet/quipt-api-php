@@ -16,14 +16,14 @@ use Hkonnet\QuiptApi\InventoryService\SimpleType\QuantityUnits;
  * @property array $Items
  * @property string $TransactionId
  */
-class CreateOrUpdateInventory extends \Hkonnet\QuiptApi\AbstractComplexType
+class CreateOrUpdateInventoryRequest extends \Hkonnet\QuiptApi\AbstractComplexType
 {
     /**
      * Name of this complex type
      *
      * @var string
      */
-    protected $name = 'CreateOrUpdateInventory';
+    protected $name = 'CreateOrUpdateInventoryRequest';
 
     /**
      * Identifies the Purge

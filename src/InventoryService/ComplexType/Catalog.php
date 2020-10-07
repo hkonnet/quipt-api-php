@@ -23,7 +23,7 @@ namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
  * @property CatalogManufacturer $Manufacturer
  * @property CatalogManufacturer $Brand
  * @property array $SKUs
- * @property CountryOfOrigin $CountryOfOrigin
+ * @property Country $Country
  * @property CatalogCategory $Category
  * @property array $Attributes
  * @property CatalogPricing $Pricing
@@ -212,12 +212,12 @@ class Catalog extends \Hkonnet\QuiptApi\AbstractComplexType
     /**
      * Identifies the  $country_of_origin of inventory
      *
-     * @param CountryOfOrigin $country_of_origin
+     * @param Country $country
      * @return $this
      */
-    public function setCountryOfOrigin(CountryOfOrigin $country_of_origin)
+    public function setCountry(Country $country)
     {
-        $this->values['CountryOfOrigin'] = $country_of_origin;
+        $this->values['Country'] = $country;
         return $this;
     }
     /**

@@ -1,7 +1,8 @@
 <?php
 namespace Hkonnet\QuiptApi\InventoryService;
 use Hkonnet\QuiptApi\Base;
-use Hkonnet\QuiptApi\InventoryService\ComplexType\CreateOrUpdateInventory;
+use Hkonnet\QuiptApi\InventoryService\ComplexType\CreateOrUpdateInventoryRequest;
+use Hkonnet\QuiptApi\InventoryService\ComplexType\CreateOrUpdateInventoryResponse;
 
 /**
  * Request sends the SOAP call to the FedEx servers and returns the response
@@ -30,14 +31,17 @@ class Request extends Base
 
     }
 
-    public function createInventory(CreateOrUpdateInventory $inventory_request){
-        echo "<pre>";
-        print_r(  $inventory_request->toArray());
-        dd();
+    public function createInventory(CreateOrUpdateInventoryRequest $inventory_request,$returnStdClass = false){
         try {
-            $data=$inventory_request->toArray();
-            $response = $this->post($data, "/v2/inventory/physical");
-            return $response;
+            $response = $this->post($inventory_request->toArray(), "/v2/inventory/physical");
+
+            if ($returnStdClass) {
+                return $response;
+            }
+
+            $creat_or_update_reply=new CreateOrUpdateInventoryResponse();
+            $creat_or_update_reply->populateFromStdClass($response);
+            return $creat_or_update_reply;
         }catch (\Exception $e){
             throw $e;
         }
