@@ -80,9 +80,9 @@ class CatalogWarranty extends \Hkonnet\QuiptApi\AbstractComplexType
      * @param PhoneNumber $phone_number
      * @return $this
      */
-    public function setNumber(PhoneNumber $phone_number)
+    public function setPhoneNumber(PhoneNumber $phone_number)
     {
-        $this->values['Number'] = $phone_number;
+        $this->values['PhoneNumber'] = $phone_number;
         return $this;
     }
 }
