@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
+namespace Hkonnet\QuiptApi\Common\ComplexType;
 
 /**
  * The descriptive data for the heaviness of an object.
@@ -15,14 +15,14 @@ namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
  * @property string $Name
  */
 
-class Country extends \Hkonnet\QuiptApi\AbstractComplexType
+class CountryOfOrigin extends \Hkonnet\QuiptApi\AbstractComplexType
 {
     /**
      * Name of this complex type
      *
      * @var string
      */
-    protected $name = 'Country';
+    protected $name = 'CountryOfOrigin';
 
     /**
      * Identifies the ISO of inventory.

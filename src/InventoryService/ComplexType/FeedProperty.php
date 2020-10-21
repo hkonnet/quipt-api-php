@@ -3,7 +3,6 @@
 
 namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
 
-use Hkonnet\QuiptApi\InventoryService\SimpleType\PackagingCodes;
 
 /**
  * The descriptive data for the heaviness of an object.

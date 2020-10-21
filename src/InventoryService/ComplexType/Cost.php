@@ -3,8 +3,6 @@
 
 namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
 
-use Hkonnet\QuiptApi\InventoryService\SimpleType\QuantityUnits;
-use Hkonnet\QuiptApi\InventoryService\SimpleType\WeightUnits;
 
 /**
  * The descriptive data for the heaviness of an object.

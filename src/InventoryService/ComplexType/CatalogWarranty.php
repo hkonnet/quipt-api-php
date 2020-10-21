@@ -3,9 +3,8 @@
 
 namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
 
-use Hkonnet\QuiptApi\InventoryService\SimpleType\DimensionUnits;
-use Hkonnet\QuiptApi\InventoryService\SimpleType\WarrantyProviders;
-use Hkonnet\QuiptApi\InventoryService\SimpleType\WeightUnits;
+use Hkonnet\QuiptApi\Common\ComplexType\PhoneNumber;
+use Hkonnet\QuiptApi\Common\SimpleType\WarrantyProviders;
 
 /**
  * The descriptive data for the heaviness of an object.

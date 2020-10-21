@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
+namespace Hkonnet\QuiptApi\Common\ComplexType;
 
-use Hkonnet\QuiptApi\InventoryService\SimpleType\QuantityUnits;
-use Hkonnet\QuiptApi\InventoryService\SimpleType\WeightUnits;
+use Hkonnet\QuiptApi\Common\SimpleType\CurrencyUnits;
+
 
 /**
  * The descriptive data for the heaviness of an object.
@@ -13,23 +13,22 @@ use Hkonnet\QuiptApi\InventoryService\SimpleType\WeightUnits;
  * @package     PHP Quipt API wrapper
  * @subpackage  Inventroy Service
  *
- * @property QuantityUnits|integer $Units
- * @property string|null $ExpectedAt
+ * @property CurrencyUnits|integer $Units
  * @property float $Value
  */
-class QuantityOnOrder extends \Hkonnet\QuiptApi\AbstractComplexType
+class Currency extends \Hkonnet\QuiptApi\AbstractComplexType
 {
     /**
      * Name of this complex type
      *
      * @var string
      */
-    protected $name = 'QuantityOnOrder';
+    protected $name = 'Currency';
 
     /**
      * Identifies the unit of measure associated with a weight value.
      *
-     * @param QuantityUnits|integer $units
+     * @param CurrencyUnits|integer $units
      * @return $this
      */
     public function setUnits($units)
@@ -47,17 +46,6 @@ class QuantityOnOrder extends \Hkonnet\QuiptApi\AbstractComplexType
     public function setValue($value)
     {
         $this->values['Value'] = $value;
-        return $this;
-    }
-    /**
-     * Identifies the weight value of a package/shipment.
-     *
-     * @param string|null $expectedAt
-     * @return $this
-     */
-    public function setExpectedAt($expectedAt)
-    {
-        $this->values['ExpectedAt'] = $expectedAt;
         return $this;
     }
 }

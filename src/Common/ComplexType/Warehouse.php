@@ -1,9 +1,7 @@
 <?php
 
 
-namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
-
-use Hkonnet\QuiptApi\InventoryService\SimpleType\ConditionCodes;
+namespace Hkonnet\QuiptApi\Common\ComplexType;
 
 /**
  * The descriptive data for the heaviness of an object.
@@ -13,18 +11,19 @@ use Hkonnet\QuiptApi\InventoryService\SimpleType\ConditionCodes;
  * @subpackage  Inventroy Service
  *
  * @property string $Id
- * @property string $Name
- * @property ConditionCodes|string $Code
+ * @property string $DisplayName
+ * @property string $Code
+ * @property Address $Address
  */
 
-class CatalogCondition extends \Hkonnet\QuiptApi\AbstractComplexType
+class Warehouse extends \Hkonnet\QuiptApi\AbstractComplexType
 {
     /**
      * Name of this complex type
      *
      * @var string
      */
-    protected $name = 'Condition';
+    protected $name = 'Warehouse';
 
     /**
      * Identifies the Id of inventory.
@@ -39,26 +38,38 @@ class CatalogCondition extends \Hkonnet\QuiptApi\AbstractComplexType
     }
 
     /**
-     * Identifies the name of inventory
+     * Identifies the display name of inventory
      *
-     * @param string $name
+     * @param string $display_name
      * @return $this
      */
-    public function setName($name)
+    public function setDisplayName($display_name)
     {
-        $this->values['Name'] = $name;
+        $this->values['DisplayName'] = $display_name;
         return $this;
     }
 
     /**
      * Identifies the code of inventory
      *
-     * @param ConditionCodes|string $code
+     * @param string $code
      * @return $this
      */
     public function setCode($code)
     {
         $this->values['Code'] = $code;
+        return $this;
+    }
+
+    /**
+     * Identifies the  Country of inventory
+     *
+     * @param Address $address
+     * @return $this
+     */
+    public function setAddress(Address $address)
+    {
+        $this->values['Address'] = $address;
         return $this;
     }
 }

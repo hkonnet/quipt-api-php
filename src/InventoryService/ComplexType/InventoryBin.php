@@ -3,6 +3,8 @@
 
 namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
 
+use Hkonnet\QuiptApi\Common\ComplexType\Quantity;
+
 /**
  * The descriptive data for the heaviness of an object.
  *

@@ -3,7 +3,9 @@
 
 namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
 
-use Hkonnet\QuiptApi\InventoryService\SimpleType\WeightUnits;
+
+use Hkonnet\QuiptApi\Common\ComplexType\Currency;
+use Hkonnet\QuiptApi\Common\ComplexType\Partner;
 
 /**
  * The descriptive data for the heaviness of an object.

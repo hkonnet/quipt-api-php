@@ -3,6 +3,11 @@
 
 namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
 
+use Hkonnet\QuiptApi\Common\ComplexType\CatalogCondition;
+use Hkonnet\QuiptApi\Common\ComplexType\Country;
+use Hkonnet\QuiptApi\Common\ComplexType\Dimensions;
+use Hkonnet\QuiptApi\Common\ComplexType\Weight;
+
 /**
  * The descriptive data for the heaviness of an object.
  *

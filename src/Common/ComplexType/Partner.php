@@ -1,7 +1,8 @@
 <?php
 
 
-namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
+namespace Hkonnet\QuiptApi\Common\ComplexType;
+
 
 /**
  * The descriptive data for the heaviness of an object.
@@ -11,19 +12,18 @@ namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
  * @subpackage  Inventroy Service
  *
  * @property string $Id
- * @property string $DisplayName
+ * @property string $Name
  * @property string $Code
- * @property Address $Address
  */
 
-class Warehouse extends \Hkonnet\QuiptApi\AbstractComplexType
+class Partner extends \Hkonnet\QuiptApi\AbstractComplexType
 {
     /**
      * Name of this complex type
      *
      * @var string
      */
-    protected $name = 'Warehouse';
+    protected $name = 'Partner';
 
     /**
      * Identifies the Id of inventory.
@@ -38,14 +38,14 @@ class Warehouse extends \Hkonnet\QuiptApi\AbstractComplexType
     }
 
     /**
-     * Identifies the display name of inventory
+     * Identifies the name of inventory
      *
-     * @param string $display_name
+     * @param string $name
      * @return $this
      */
-    public function setDisplayName($display_name)
+    public function setName($name)
     {
-        $this->values['DisplayName'] = $display_name;
+        $this->values['Name'] = $name;
         return $this;
     }
 
@@ -58,18 +58,6 @@ class Warehouse extends \Hkonnet\QuiptApi\AbstractComplexType
     public function setCode($code)
     {
         $this->values['Code'] = $code;
-        return $this;
-    }
-
-    /**
-     * Identifies the  Country of inventory
-     *
-     * @param Address $address
-     * @return $this
-     */
-    public function setAddress(Address $address)
-    {
-        $this->values['Address'] = $address;
         return $this;
     }
 }

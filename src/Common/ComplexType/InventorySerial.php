@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
+namespace Hkonnet\QuiptApi\Common\ComplexType;
 
 /**
  * The descriptive data for the heaviness of an object.

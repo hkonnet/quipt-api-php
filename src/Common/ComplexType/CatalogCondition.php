@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
+namespace Hkonnet\QuiptApi\Common\ComplexType;
 
-use Hkonnet\QuiptApi\InventoryService\SimpleType\PackagingCodes;
+use Hkonnet\QuiptApi\Common\SimpleType\ConditionCodes;
 
 /**
  * The descriptive data for the heaviness of an object.
@@ -14,17 +14,17 @@ use Hkonnet\QuiptApi\InventoryService\SimpleType\PackagingCodes;
  *
  * @property string $Id
  * @property string $Name
- * @property string $Code
+ * @property ConditionCodes|string $Code
  */
 
-class Partner extends \Hkonnet\QuiptApi\AbstractComplexType
+class CatalogCondition extends \Hkonnet\QuiptApi\AbstractComplexType
 {
     /**
      * Name of this complex type
      *
      * @var string
      */
-    protected $name = 'Partner';
+    protected $name = 'Condition';
 
     /**
      * Identifies the Id of inventory.
@@ -53,7 +53,7 @@ class Partner extends \Hkonnet\QuiptApi\AbstractComplexType
     /**
      * Identifies the code of inventory
      *
-     * @param string $code
+     * @param ConditionCodes|string $code
      * @return $this
      */
     public function setCode($code)

@@ -3,9 +3,12 @@
 
 namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
 
+use Hkonnet\QuiptApi\Common\ComplexType\Currency;
+use Hkonnet\QuiptApi\Common\ComplexType\Dimensions;
+use Hkonnet\QuiptApi\Common\ComplexType\Weight;
 use Hkonnet\QuiptApi\InventoryService\SimpleType\DropShipOptions;
 use Hkonnet\QuiptApi\InventoryService\SimpleType\Flags;
-use Hkonnet\QuiptApi\InventoryService\SimpleType\WeightUnits;
+
 
 /**
  * The descriptive data for the heaviness of an object.

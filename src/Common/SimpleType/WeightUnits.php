@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Hkonnet\QuiptApi\InventoryService\SimpleType;
+namespace Hkonnet\QuiptApi\Common\SimpleType;
 
 
 /**
