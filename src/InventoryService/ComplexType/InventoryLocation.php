@@ -3,6 +3,7 @@
 
 namespace Hkonnet\QuiptApi\InventoryService\ComplexType;
 
+use Hkonnet\QuiptApi\Common\ComplexType\InventorySerialCollection;
 use Hkonnet\QuiptApi\Common\ComplexType\Quantity;
 use Hkonnet\QuiptApi\Common\ComplexType\QuantityOnOrder;
 use Hkonnet\QuiptApi\Common\ComplexType\Warehouse;
